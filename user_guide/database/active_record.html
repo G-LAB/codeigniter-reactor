@@ -439,6 +439,15 @@ The second parameter lets you set the direction of the result.  Options are <kbd
 	<br />
 	// Produces: ORDER BY title DESC, name ASC
 	</code></p>
+	
+<p>If you are using a database that CodeIgniter escapes queries for, you can prevent escaping content by passing an optional, third argument, and setting it to FALSE.</p>
+<p class="important">Note: This will also require the second, formerly optional, argument to be set manually.</p>
+<p><code>$this-&gt;db-&gt;order_by('user_id',  'ASC'); <br />
+// Produces: ORDER BY `user_id` ASC in some databases, such as MySQL.
+		<br />
+		$this-&gt;db-&gt;order_by('user_id',  'ASC', FALSE); <br />
+// Produces: ORDER BY user_id ASC</code></p>
+	
 <p class="important">Note: order_by() was formerly known as orderby(), which has been removed.</p>
 <p class="important">Note: random ordering is not currently supported in Oracle or MSSQL drivers. These will default to 'ASC'.</p>
 <h2>$this->db->limit();</h2>
